@@ -23,11 +23,11 @@ bool compare_as_ints (double i,double j)
 
 int main()
 {
-    //vector<int> vec = {9,6,2,4,3,8,0,7,5,1};
-    //printVector(vec);
+    vector<int> vec = {9,6,2,4,3,8,0,7,5,1};
+    printVector(vec);
 
-    //std::sort(vec.begin(), vec.end());  //5
-    //printVector(vec);
+    std::sort(vec.begin(), vec.end());  //5
+    printVector(vec);
 
     //std::partial_sort(vec.begin(), vec.begin()+ 4, vec.end()); //6
     //printVector(vec);
@@ -62,5 +62,33 @@ int main()
     std::stable_sort (doubles2.begin(), doubles2.end(), compare_as_ints); //18
     printVector(doubles2);
 
+    cout << std::is_sorted(vec.begin(), vec.end()) << endl; //19
+    cout << std::is_sorted(v.begin(), v.end()) << endl;
+    cout << std::is_sorted(doubles.begin(), doubles.end()) << endl;
+    cout << std::is_sorted(doubles2.begin(), doubles2.end()) << endl;
+
+    vector<int> foo2 = {1,2,3,4};
+    do {
+        printVector(foo2);
+    }while(next_permutation(foo2.begin(), foo2.end()));
+    cout << "End of loop";printVector(foo2);
+
+    cout << "==============" << endl;
+
+    vector<int> foo = {2,4,1,3};
+    do {
+        printVector(foo);
+        prev_permutation(foo.begin(), foo.end());
+    }while(!is_sorted(foo.begin(), foo.end()));
+    cout << "End of loop";printVector(foo);
+
+    vector<int> foo3 = {2,4,1,3};
+    vector<int>::iterator itr;
+    do {
+        printVector(foo3);
+        prev_permutation(foo3.begin(), foo3.end());
+        itr = std::is_sorted_until(foo3.begin(),foo3.end()); //22
+    }while(itr != foo3.end());
+    cout << "End of loop";printVector(foo3);
     return 0;
 }

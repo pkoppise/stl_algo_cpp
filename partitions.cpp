@@ -17,11 +17,15 @@ int main()
     vector<int> vec = {9,6,2,4,3,8,7,5,1};
     printVector(vec);
 
-    //std::partition(vec.begin(), vec.end(), IsOdd);  //10
+    cout << std::is_partitioned(vec.begin(), vec.end(), IsOdd) << endl; //20
+
+    std::partition(vec.begin(), vec.end(), IsOdd);  //10
+    printVector(vec);
+
+    //std::stable_partition(vec.begin(), vec.end(), IsOdd); //11
     //printVector(vec);
 
-    std::stable_partition(vec.begin(), vec.end(), IsOdd); //11
-    printVector(vec);
+    cout << std::is_partitioned(vec.begin(), vec.end(), IsOdd) << endl;
 
     std::vector<int> odd;
     auto it = std::partition_point(vec.begin(),vec.end(),IsOdd); //12
